@@ -12,8 +12,8 @@ install-graphforge.bat
 
 ইনস্টলার যা করবে:
 
-- Python 3.8 বা নতুন ভার্সন আছে কি না চেক করবে।
-- Python না থাকলে `winget` দিয়ে Python 3.11 ইনস্টল করার চেষ্টা করবে।
+- Python 3.8-3.12, 64-bit আছে কি না চেক করবে।
+- Python না থাকলে `winget` দিয়ে Python 3.11, 64-bit ইনস্টল করার চেষ্টা করবে।
 - `backend\.venv` নামে এই কম্পিউটারের জন্য আলাদা virtual environment তৈরি করবে।
 - `backend\requirements.txt` থেকে backend dependency ইনস্টল করবে।
 - Desktop-এ `GraphForge` shortcut তৈরি করবে।
@@ -55,4 +55,5 @@ install-graphforge.bat
 
 - Windows 10 বা Windows 11
 - প্রথমবার install করার সময় internet connection
-- Python 3.8 বা নতুন ভার্সন; না থাকলে installer `winget` দিয়ে Python ইনস্টল করার চেষ্টা করবে
+- Python 3.8-3.12, 64-bit; Python 3.11 recommended
+- Python না থাকলে installer `winget` দিয়ে Python 3.11 ইনস্টল করার চেষ্টা করবে
