@@ -1,33 +1,58 @@
-# GraphForge - Multi-Line Graph Generator
+# GraphForge - মাল্টি-লাইন গ্রাফ জেনারেটর
 
-GraphForge is a web-based application for generating beautiful, dynamic multi-line graphs by simply pasting X, Y coordinate data directly from your spreadsheets.
+GraphForge একটি ওয়েব অ্যাপ। Excel বা Google Sheets থেকে X, Y ডেটা কপি করে পেস্ট করলেই সুন্দর মাল্টি-লাইন গ্রাফ তৈরি করা যায়।
 
-## 🚀 How to Run (One-Click)
+## প্রথমবার ইনস্টল
 
-To start the entire application with a single click:
+Windows-এ প্রথমবার শুধু এই ফাইলটি ডাবল-ক্লিক করুন:
 
-1. Double-click the **`start-app.bat`** file in this directory.
-2. The script will automatically:
-   - Start the FastAPI backend server
-   - Start the Frontend HTTP server
-   - Open your default web browser to the application page (`http://localhost:3001`)
+```text
+install-graphforge.bat
+```
 
-*Note: You will see two black command prompt windows open. Leave them open while you are using the app.*
+ইনস্টলার যা করবে:
 
-### Manual Start (Alternative)
-If you prefer to start the components manually:
-1. Double-click `start-backend.bat` to launch the API.
-2. Double-click `start-frontend.bat` to launch the web interface.
-3. Open `http://localhost:3001` in your browser.
+- Python 3.8 বা নতুন ভার্সন আছে কি না চেক করবে।
+- Python না থাকলে `winget` দিয়ে Python 3.11 ইনস্টল করার চেষ্টা করবে।
+- `backend\.venv` নামে এই কম্পিউটারের জন্য আলাদা virtual environment তৈরি করবে।
+- `backend\requirements.txt` থেকে backend dependency ইনস্টল করবে।
+- Desktop-এ `GraphForge` shortcut তৈরি করবে।
 
-## 📋 How to Use
+ইনস্টল শেষ হলে Desktop-এর **GraphForge** আইকনে ডাবল-ক্লিক করলেই অ্যাপ চালু হবে।
 
-1. **Paste Data:** Copy your X and Y columns from Excel or Google Sheets and paste them directly into the text area. Tabular data (tab-separated) is automatically detected and parsed.
-2. **Add Series:** Click "+ Add Series" to add additional data lines to your graph.
-3. **Customize:** Click "Rename" or use the color picker on any tab to customize the look of each line.
-4. **Generate:** Click "Generate Graph" to render your chart. 
-5. **Download:** Export your chart using the PNG download button.
+## প্রতিবার চালানোর নিয়ম
 
-## Requirements
-- Windows OS
-- Python 3 installed and added to your System PATH
+1. Desktop-এর **GraphForge** আইকনে ডাবল-ক্লিক করুন।
+2. Backend এবং Frontend-এর জন্য দুটি command window খুলবে।
+3. Browser-এ `http://127.0.0.1:3001` খুলবে।
+4. অ্যাপ ব্যবহার করার সময় ওই দুটি command window খোলা রাখুন।
+
+## ম্যানুয়ালভাবে চালাতে চাইলে
+
+ইনস্টল করার পরে চাইলে আলাদা করে চালানো যায়:
+
+1. `start-backend.bat` ডাবল-ক্লিক করুন।
+2. `start-frontend.bat` ডাবল-ক্লিক করুন।
+3. Browser-এ `http://127.0.0.1:3001` খুলুন।
+
+## কীভাবে ব্যবহার করবেন
+
+1. Excel বা Google Sheets থেকে X, Y column কপি করুন।
+2. GraphForge-এর text area-তে পেস্ট করুন।
+3. দরকার হলে **+ Add Series** দিয়ে আরও line যোগ করুন।
+4. **Rename** বা color picker দিয়ে line customize করুন।
+5. **Generate Graph** ক্লিক করুন।
+6. PNG বা SVG হিসেবে graph download করুন।
+
+## গুরুত্বপূর্ণ নোট
+
+- `backend\venv` বা `backend\.venv` অন্য কম্পিউটারে copy করে ব্যবহার করবেন না।
+- প্রতিটি user-এর কম্পিউটারে `install-graphforge.bat` চালিয়ে নতুন `.venv` তৈরি করতে হবে।
+- Dependency install করার সময় internet দরকার হতে পারে।
+- Offline install দরকার হলে `wheels` folder তৈরি করে package wheel ফাইল রাখুন; installer থাকলে সেখান থেকেই dependency install করার চেষ্টা করবে।
+
+## প্রয়োজনীয়তা
+
+- Windows 10 বা Windows 11
+- প্রথমবার install করার সময় internet connection
+- Python 3.8 বা নতুন ভার্সন; না থাকলে installer `winget` দিয়ে Python ইনস্টল করার চেষ্টা করবে

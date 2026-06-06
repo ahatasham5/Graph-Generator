@@ -1,31 +1,30 @@
 @echo off
-title GraphForge — Backend
+setlocal
+title GraphForge Backend
+
+set "ROOT=%~dp0"
+set "VENV_PY=%ROOT%backend\.venv\Scripts\python.exe"
+
 echo.
 echo  ========================================
 echo   GraphForge Backend (FastAPI)
 echo  ========================================
 echo.
 
-cd /d "%~dp0backend"
-
-:: Check if venv exists
-if not exist "venv\Scripts\activate.bat" (
-    echo [*] Creating virtual environment...
-    python -m venv venv
-    echo [OK] Virtual environment created.
+if not exist "%VENV_PY%" (
+    echo [ERROR] Local Python environment not found.
+    echo Please run install-graphforge.bat first.
+    echo.
+    pause
+    exit /b 1
 )
 
-:: Activate venv
-call venv\Scripts\activate.bat
-
-:: Install dependencies
-echo [*] Installing dependencies...
-pip install -r requirements.txt --quiet
+cd /d "%ROOT%backend"
 
 echo.
-echo [OK] Starting FastAPI server on http://localhost:8000
-echo [OK] API docs at   http://localhost:8000/docs
+echo [OK] Starting FastAPI server on http://127.0.0.1:8000
+echo [OK] API docs at   http://127.0.0.1:8000/docs
 echo.
 
-python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+"%VENV_PY%" -m uvicorn main:app --host 127.0.0.1 --port 8000
 pause

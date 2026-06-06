@@ -2,7 +2,7 @@
    GraphForge — app.js  (Vanilla JavaScript)
 ───────────────────────────────────────────── */
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'http://127.0.0.1:8000';
 
 const PRESET_COLORS = [
   '#6366f1','#a855f7','#ec4899','#f59e0b',
